@@ -7,10 +7,72 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.employersapp.MainActivity">
+    tools:context="com.example.pc.appemployers.MainActivity">
 
-    <TextView
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emaillogin"
+        android:hint="Email"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordlogin"
+        android:hint="password"
+        android:layout_below="@+id/emaillogin"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/login"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="login"
+        android:background="#2c4ad0" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/register"
+        android:onClick="register"
+        android:layout_below="@+id/login"
+        android:layout_alignParentStart="true" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Forget password"
+        android:id="@+id/forgetpassword"
+        android:layout_below="@+id/register"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="forgetpass" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POST A JOB"
+        android:id="@+id/postajob"
+        android:layout_below="@+id/forgetpassword"
+        android:layout_centerHorizontal="true"
+        android:onClick="postAJob" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SearchCandidate"
+        android:id="@+id/searchcandidate"
+        android:layout_below="@+id/postajob"
+        android:layout_centerHorizontal="true"
+        android:onClick="searchCandidate"/>
 </RelativeLayout>

@@ -65,10 +65,7 @@ public class Dashboard extends Activity {
         });
         requestQueue.add(jsonObjectRequest);
     }
-    public void postaJob(View view) {
-        Intent intent=new Intent(Dashboard.this,Jobposting.class);
-        startActivity(intent);
-    }
+
     public void admin(View view) {
         Intent intent=new Intent(Dashboard.this,Alert.class);
         startActivity(intent);

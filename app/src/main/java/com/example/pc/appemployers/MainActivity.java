@@ -1,5 +1,5 @@
 package com.example.pc.appemployers;
-                    
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -72,7 +72,7 @@ EditText etemail,etpassword;
                 editor.putString("lastName",lastName);
                 editor.putString("emailId",emailId);
                 editor.commit();
-Intent intent=new Intent(MainActivity.this, Dashboard.class);
+Intent intent=new Intent(MainActivity.this, Launcher.class);
                 startActivity(intent);
 
             }
