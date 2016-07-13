@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Any of the Keywords"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All the Keywords"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Excluding Keywords"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Experience"
+                android:id="@+id/totalexperience"/>
+            <Spinner
+
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/minexperi"
+                android:layout_below="@+id/totalexperience"/>
+            <Spinner
+
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/maxexperience"
+                android:layout_below="@+id/totalexperience"
+                android:layout_toRightOf="@+id/minexperi"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annual Salary"
+            android:id="@+id/annualsalary"/>
+            <Spinner
+
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/minsal"
+                android:layout_below="@+id/annualsalary"
+                />
+            <Spinner
+
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/maxsal"
+                android:layout_below="@+id/annualsalary"
+                android:layout_toRightOf="@+id/minsal"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Functional Area"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Industry Type"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employers"
+                android:id="@+id/employers"/>
+            <EditText
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/emp"
+                android:layout_below="@+id/employers"/>
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/employersspinner"
+                android:layout_below="@+id/employers"
+                android:layout_toRightOf="@+id/emp"/>
+        </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Exclude"
+                    android:text="Exclude Employers"/>
+                <EditText
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Exc"
+                    android:layout_below="@+id/Exclude"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:id="@+id/excludeemployersspinner"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Exclude"
+                    android:layout_toRightOf="@+id/Exc"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/desig"
+                android:text="Designation"/>
+            <EditText
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/desig1"
+                android:layout_below="@+id/desig"/>
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/designationspinner"
+                android:layout_below="@+id/desig"
+                android:layout_toRightOf="@+id/desig1"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UG Qualification"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/and"
+                android:text="AND"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/or"
+                android:text="OR"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+                </RadioGroup>
+            </RelativeLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="PG Qualification"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/premium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premium Institutes"
+                android:layout_toRightOf="@+id/premium"/>
+        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidates Last Active In "/>
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Sort By"/>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Sort By" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Candidates With"
+            android:id="@+id/showcan"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/verified"
+                android:layout_below="@+id/showcan"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verified Email"
+                android:id="@+id/verifiedemail"
+                android:layout_below="@+id/showcan"
+                android:layout_toRightOf="@+id/verified"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/attached"
+                android:layout_below="@+id/showcan"
+                android:layout_toRightOf="@+id/verifiedemail" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attached Resumes"
+                android:id="@+id/attachedresumes"
+                android:layout_below="@+id/showcan"
+                android:layout_toRightOf="@+id/attached"/>
+        </RelativeLayout> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:id="@+id/gender"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/malecheck"
+                android:layout_below="@+id/gender"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/male"
+                android:layout_below="@+id/gender"
+                android:layout_toRightOf="@+id/malecheck"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/femalecheck"
+                android:layout_below="@+id/gender"
+                android:layout_toRightOf="@+id/male" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/female"
+                android:layout_below="@+id/gender"
+                android:layout_toRightOf="@+id/femalecheck"/>
+        </RelativeLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:id="@+id/search"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar" />
+
+
+    </LinearLayout>
+    </ScrollView>

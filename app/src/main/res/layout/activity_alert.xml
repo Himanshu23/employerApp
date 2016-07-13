@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc.appemployers.Alert">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Application Alerts"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:id="@+id/textView2"
+            android:layout_alignTop="@+id/radioGroup1"
+            android:layout_alignParentStart="true"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/applicationalertsdaily"
+            android:text="Daily"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/applicationalertsweekly"
+            android:text="Weekly" />
+    </RadioGroup>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup2"
+            android:layout_below="@+id/radioGroup1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Job Posting Alerts"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:id="@+id/jobpostingalerts"
+                android:layout_alignTop="@+id/radioGroup2"
+                android:layout_alignParentStart="true"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/jobpostingalertsyes"
+                android:text="@string/yes" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/jobpostingalertsno"
+                android:text="@string/no"
+                />
+        </RadioGroup>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup3"
+        android:layout_below="@+id/radioGroup2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recommendation Profile"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:id="@+id/recommendatonprofile"
+            android:layout_alignTop="@+id/radioGroup3"
+            android:layout_alignParentStart="true"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommendationyes"
+            android:text="@string/yes1" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommendationno"
+            android:text="@string/no1"
+            />
+    </RadioGroup>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup4"
+        android:layout_below="@+id/radioGroup3"
+        android:onClick="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monthly"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:id="@+id/monthly"
+            android:layout_alignTop="@+id/radioGroup4"
+            android:layout_alignParentStart="true"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/monthlyyes"
+            android:text="@string/yes2" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/monthlyno"
+            android:text="@string/no2"
+            />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:id="@+id/updatesettings"
+        android:layout_below="@+id/radioGroup4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:onClick="updatesettings"/>
+
+
+</RelativeLayout>
