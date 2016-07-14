@@ -1,12 +1,11 @@
 package com.example.pc.appemployers;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,27 +14,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Launcher extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    TextView profile;
+   protected DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        profile= (TextView) findViewById(R.id.profile);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -43,6 +49,7 @@ public class Launcher extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        profileView();
     }
 
     @Override
@@ -84,7 +91,8 @@ public class Launcher extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.dashboard) {
-            // Handle the camera action
+            Intent intent=new Intent(Launcher.this,Dashboard.class);
+            startActivity(intent);
         } else if (id == R.id.jobresponses) {
 
         } else if (id == R.id.search) {
@@ -94,13 +102,18 @@ public class Launcher extends AppCompatActivity
         } else if (id == R.id.organization) {
 
         } else if (id == R.id.logout) {
+            //remove sharedpreferences
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Launcher.this);
             SharedPreferences.Editor editor = pref.edit();
             editor.remove("clLoginId");
             editor.remove("emailId");
             editor.apply();
+            //removing history
             Intent intent=new Intent(Launcher.this,MainActivity.class);
-            startActivity(intent);
+             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+           this.startActivity(intent);
+            this.finish();
 
 
         }
@@ -108,5 +121,30 @@ public class Launcher extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void profileView(){
+        RequestQueue requestQueue= Volley.newRequestQueue(Launcher.this);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Launcher.this);
+        int clLoginId=pref.getInt("clLoginId",0);
+        String loginid=Integer.toString(clLoginId);
+        final String PROFILEVIEW_URL="http://10.100.100.35:8080/ews/clLogins/getClientProfile/"+loginid+"?key=HHEemmppllooyyeerraappii";
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, PROFILEVIEW_URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) throws JSONException {
+               JSONObject ob1=response.getJSONObject("responseObject");
+                JSONObject ob2=ob1.getJSONObject("data");
+                String name=ob2.getString("name");
+                String designation=ob2.getString("designationName");
+                String company=ob2.getString("companyName");
+                profile.setText("Hi,"+ "  "+name+"  "+designation+" "+"@"+" "+company);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Launcher.this,"not working",Toast.LENGTH_LONG).show();
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
     }
 }

@@ -1,10 +1,12 @@
 package com.example.pc.appemployers;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,18 +18,22 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
-public class Dashboard extends Activity {
+public class Dashboard extends Launcher {
     TextView profile,jobview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_dashboard, null, false);
+        drawer.addView(contentView, 0);
+
         profile= (TextView) findViewById(R.id.profile);
-        jobview= (TextView) findViewById(R.id.jobview);
+      //  jobview= (TextView) findViewById(R.id.jobview);
         profileView();
     }
-    public void profileView(){
+   public void profileView(){
         RequestQueue requestQueue=Volley.newRequestQueue(Dashboard.this);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Dashboard.this);
         int clLoginId=pref.getInt("clLoginId",0);

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.appemployers.Dashboard">
+    android:paddingTop="48dp"
+    tools:context="com.example.pc.appemployers.Dashboard"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
@@ -19,41 +20,51 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jobs"
-        android:id="@+id/jobs"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:onClick="jobView" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/jobview"
-        android:layout_alignTop="@+id/jobs"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/jobs"
-        android:layout_toEndOf="@+id/jobs" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="POST A JOB"
-        android:id="@+id/button"
-        android:layout_below="@+id/jobs"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="55dp"
-        android:onClick="postaJob" />
+        android:padding="20dp">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Jobs"
+            android:id="@+id/jobs"
+           android:layout_marginStart="40dp"
+            android:background="@drawable/jobs"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Admin"
-        android:id="@+id/admin"
-        android:layout_below="@+id/button"
-        android:layout_alignParentStart="true"
-        android:onClick="admin" />
-</RelativeLayout>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Pending apnplicatio"
+            android:id="@+id/pendingapplicationbutton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/pending"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Search candidate"
+            android:id="@+id/searchcandidatebutton"
+            android:layout_gravity="right"
+            android:background="@drawable/search"
+            android:layout_below="@+id/jobs"
+            android:layout_alignStart="@+id/jobs"
+            android:layout_marginTop="52dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Poast a Job"
+            android:background="@drawable/post"
+            android:id="@+id/postajobbutton"
+            android:layout_alignTop="@+id/searchcandidatebutton"
+            android:layout_alignStart="@+id/pendingapplicationbutton" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

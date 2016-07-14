@@ -29,11 +29,12 @@ EditText etemail,etpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         int clLoginId=pref.getInt("clLoginId",0);
         String emailId=pref.getString("emailId",null);
         if(clLoginId!=0&&emailId!=null){
-            Intent intent=new Intent(MainActivity.this,Dashboard.class);
+            Intent intent=new Intent(MainActivity.this,Launcher.class);
             startActivity(intent);
         }
         else {
@@ -43,10 +44,8 @@ EditText etemail,etpassword;
         }
     }
 
-    public void register(View view) {
-        Intent intent = new Intent(MainActivity.this, registration.class);
-        startActivity(intent);
-    }
+
+
 
     public void login(View view) {
         String email=etemail.getText().toString();
@@ -84,6 +83,10 @@ Intent intent=new Intent(MainActivity.this, Launcher.class);
         });
 requestQueue.add(objectRequest);
 
+    }
+    public void register(View view) {
+        Intent intent = new Intent(MainActivity.this, registration.class);
+        startActivity(intent);
     }
 
     public void forgetpass(View view) {

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,6 +25,7 @@ import java.util.Map;
 
 public class registration extends Activity {
 EditText etname,etemail,etpassword,etconfirmpassword,etcompanyname,etdesignation,etmobile,etmobilecode;
+    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +36,11 @@ EditText etname,etemail,etpassword,etconfirmpassword,etcompanyname,etdesignation
         etconfirmpassword= (EditText) findViewById(R.id.confirmpassword);
         etcompanyname= (EditText) findViewById(R.id.companyname);
         etdesignation= (EditText) findViewById(R.id.designation);
-        etmobile= (EditText) findViewById(R.id.designation);
+        etmobile= (EditText) findViewById(R.id.mobile);
         etmobilecode= (EditText) findViewById(R.id.code);
+        tv= (TextView) findViewById(R.id.tv1);
     }
+
 
     public void register(View view) {
         String name=etname.getText().toString();
@@ -46,7 +50,7 @@ EditText etname,etemail,etpassword,etconfirmpassword,etcompanyname,etdesignation
         String companyname=etcompanyname.getText().toString();
         String designation=etdesignation.getText().toString();
         String mobile=etmobile.getText().toString();
-        String mobilecode=etmobilecode.toString();
+        String mobilecode=etmobilecode.getText().toString();
         String REGISTER_URL="http://10.100.100.35:8080/ews/clLogins/postLogins?key=HHEemmppllooyyeerraappii";
         RequestQueue requestQueue= Volley.newRequestQueue(registration.this);
         if(password.equals(confirmpassword)) {
@@ -58,10 +62,12 @@ EditText etname,etemail,etpassword,etconfirmpassword,etcompanyname,etdesignation
             params.put("mobileCode", mobilecode);
             params.put("companyName", companyname);
             params.put("designationName", designation);
-            JsonObjectRequest objectRequest=new JsonObjectRequest(Request.Method.POST, REGISTER_URL, new JSONObject(params), new Response.Listener<JSONObject>() {
+
+            JsonObjectRequest objectRequest=new JsonObjectRequest(Request.Method.POST, REGISTER_URL,new JSONObject(params), new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) throws JSONException {
-                    JSONObject object=response.getJSONObject("responseObject");
+                    Toast.makeText(registration.this,response.toString(),Toast.LENGTH_LONG).show();
+                   /* JSONObject object=response.getJSONObject("responseObject");
                     JSONObject object1=object.getJSONObject("data");
                     int loginId=object1.getInt("clLoginId");
                     String firstName=object1.getString("firstName");
@@ -74,8 +80,9 @@ EditText etname,etemail,etpassword,etconfirmpassword,etcompanyname,etdesignation
                     editor.putString("lastName",lastName);
                     editor.putString("emailId",emailId);
                     editor.commit();
-                    Intent intent=new Intent(registration.this,Dashboard.class);
-                    startActivity(intent);
+
+                    Intent intent=new Intent(registration.this,Launcher.class);
+                    startActivity(intent);*/
 
                 }
             }, new Response.ErrorListener() {
@@ -88,7 +95,5 @@ EditText etname,etemail,etpassword,etconfirmpassword,etcompanyname,etdesignation
         }
         else
             Toast.makeText(registration.this,"password not matched",Toast.LENGTH_LONG).show();
-
     }
-
 }
