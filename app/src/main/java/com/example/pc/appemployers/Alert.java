@@ -139,8 +139,7 @@ else {
             @Override
             public void onResponse(JSONObject response) throws JSONException {
 Toast.makeText(Alert.this," "+appAlertDaily+" " +appAlertWeekly+" "+jobAlert+" "+recommendationsStatus+" "+monthlyActivity,Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(Alert.this,Dashboard.class);
-                startActivity(intent);
+
             }
         },
                 new Response.ErrorListener() {

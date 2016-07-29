@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,8 +78,16 @@ public class Launcher extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.alertsettings) {
+            Intent intent = new Intent(Launcher.this, Alert.class);
+            startActivity(intent);
+
+        }
+        else if(id==R.id.updateprofile){
+            Intent intent=new Intent(Launcher.this,UpdateProfile.class);
+            startActivity(intent);
+        return true;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -91,13 +100,14 @@ public class Launcher extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.dashboard) {
-            Intent intent=new Intent(Launcher.this,Dashboard.class);
-            startActivity(intent);
+
         } else if (id == R.id.jobresponses) {
 
         } else if (id == R.id.search) {
 
         } else if (id == R.id.reports) {
+            Intent intent=new Intent(Launcher.this,Reports.class);
+            startActivity(intent);
 
         } else if (id == R.id.organization) {
 
@@ -147,4 +157,29 @@ public class Launcher extends AppCompatActivity
         });
         requestQueue.add(jsonObjectRequest);
     }
-}
+
+
+    public void Search_candidate(View view) {
+        Intent intent=new Intent(Launcher.this,Search.class);
+        startActivity(intent);
+    }
+
+    public void Post_job(View view) {
+        Intent intent=new Intent(Launcher.this,JobsView.class);
+        startActivity(intent);
+    }
+
+    public void Jobs(View view) {
+        Intent intent=new Intent(Launcher.this,JobsView.class);
+        startActivity(intent);
+    }
+
+    public void Pending_applications(View view) {
+        Intent intent=new Intent(Launcher.this,JobsView.class);
+        startActivity(intent);
+
+
+        }
+
+    }
+

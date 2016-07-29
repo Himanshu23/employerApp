@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pc.appemployers.Alert">
+    tools:context="com.example.pc.appemployers.Alert"
+    android:background="#9f7979">
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -119,7 +120,8 @@
         android:layout_below="@+id/radioGroup4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:onClick="updatesettings"/>
+        android:onClick="updatesettings"
+        android:background="#3e38b4" />
 
 
 </RelativeLayout>

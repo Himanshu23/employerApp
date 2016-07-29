@@ -2,16 +2,22 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/imageView2" />
+        android:id="@+id/imageView2"
+        android:layout_margin="@dimen/activity_vertical_margin"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2" />
+        android:text="Choose file"
+        android:id="@+id/chooseimage"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageView2" />
+</RelativeLayout>
 </ScrollView>

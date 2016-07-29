@@ -1,26 +1,20 @@
 package com.example.pc.appemployers;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +23,6 @@ EditText etemail,etpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         int clLoginId=pref.getInt("clLoginId",0);
         String emailId=pref.getString("emailId",null);
@@ -43,10 +36,6 @@ EditText etemail,etpassword;
             etpassword = (EditText) findViewById(R.id.passwordlogin);
         }
     }
-
-
-
-
     public void login(View view) {
         String email=etemail.getText().toString();
         String password=etpassword.getText().toString();
@@ -64,12 +53,14 @@ EditText etemail,etpassword;
                 String firstName=object1.getString("firstName");
                 String lastName=object1.getString("lastName");
                 String emailId=object1.getString("emailId");
+                String authCode=object1.getString("authCode");
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putInt("clLoginId",clLoginId);
                 editor.putString("firstName",firstName);
                 editor.putString("lastName",lastName);
                 editor.putString("emailId",emailId);
+                editor.putString("authCode",authCode);
                 editor.commit();
 Intent intent=new Intent(MainActivity.this, Launcher.class);
                 startActivity(intent);
@@ -84,7 +75,7 @@ Intent intent=new Intent(MainActivity.this, Launcher.class);
 requestQueue.add(objectRequest);
 
     }
-    public void register(View view) {
+    public void registerbutton(View view) {
         Intent intent = new Intent(MainActivity.this, registration.class);
         startActivity(intent);
     }
@@ -94,13 +85,10 @@ requestQueue.add(objectRequest);
         startActivity(intent);
     }
 
-    public void postAJob(View view) {
-Intent intent=new Intent(MainActivity.this,PostAJob.class);
-        startActivity(intent);
-    }
+
 
     public void searchCandidate(View view) {
-        Intent intent=new Intent(MainActivity.this,SearchCandidate.class);
+        Intent intent=new Intent(MainActivity.this,Search.class);
         startActivity(intent);
     }
 }
